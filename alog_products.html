@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALog製品群について学ぼう - 新人研修資料</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            line-height: 1.4;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: 297mm 210mm;
+            margin: 0;
+        }
+
+        .slide {
+            width: 297mm;
+            height: 210mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 12mm 15mm;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            overflow: hidden;
+        }
+
+        .title-slide {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .title-slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #00d4ff, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ffd93d;
+            margin-bottom: 15px;
+            padding: 15px 30px;
+            background: rgba(255, 217, 61, 0.1);
+            border: 2px solid rgba(255, 217, 61, 0.3);
+            border-radius: 10px;
+        }
+
+        .learning-goal {
+            font-size: 1.15rem;
+            color: #a0a0a0;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #64c864;
+        }
+
+        .date {
+            font-size: 1.1rem;
+            color: #888;
+            margin-top: 25px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #00d4ff, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 5px 0;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card.primary h3 { color: #00d4ff; }
+        .card.secondary h3 { color: #ffd93d; }
+        .card.accent h3 { color: #ff6b6b; }
+        .card.success h3 { color: #64c864; }
+        .card.purple h3 { color: #b794f6; }
+
+        .card ul { list-style: none; }
+
+        .card li {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .card li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-size: 0.6rem;
+        }
+
+        .card.secondary li::before { color: #ffd93d; }
+        .card.accent li::before { color: #ff6b6b; }
+        .card.success li::before { color: #64c864; }
+        .card.purple li::before { color: #b794f6; }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .icon.primary { background: rgba(0, 212, 255, 0.2); }
+        .icon.secondary { background: rgba(255, 217, 61, 0.2); }
+        .icon.accent { background: rgba(255, 107, 107, 0.2); }
+        .icon.success { background: rgba(100, 200, 100, 0.2); }
+        .icon.purple { background: rgba(183, 148, 246, 0.2); }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 270mm;
+        }
+
+        .card-container-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 270mm;
+        }
+
+        .highlight {
+            padding: 12px 18px;
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid #00d4ff;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 1.15rem;
+        }
+
+        .highlight.warning {
+            background: rgba(255, 217, 61, 0.1);
+            border-left-color: #ffd93d;
+        }
+
+        .highlight.important {
+            background: rgba(255, 107, 107, 0.1);
+            border-left-color: #ff6b6b;
+        }
+
+        .highlight.tip {
+            background: rgba(100, 200, 100, 0.1);
+            border-left-color: #64c864;
+        }
+
+        .product-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .badge-flagship { background: linear-gradient(135deg, #00d4ff, #7b68ee); }
+        .badge-smb { background: linear-gradient(135deg, #ffd93d, #ff9500); color: #1a1a2e; }
+        .badge-monitoring { background: linear-gradient(135deg, #64c864, #00c853); }
+        .badge-log { background: linear-gradient(135deg, #b794f6, #9c27b0); }
+
+        .keyword {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #00d4ff;
+            margin: 2px;
+        }
+
+        .keyword.yellow { background: rgba(255, 217, 61, 0.2); color: #ffd93d; }
+        .keyword.green { background: rgba(100, 200, 100, 0.2); color: #64c864; }
+        .keyword.purple { background: rgba(183, 148, 246, 0.2); color: #b794f6; }
+
+        .product-overview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 270mm;
+            margin-top: 15px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .product-icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-abbr {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            margin-top: 12px;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        th {
+            background: rgba(0, 212, 255, 0.2);
+            font-weight: bold;
+        }
+
+        .quiz-box {
+            background: rgba(255, 217, 61, 0.1);
+            border: 2px solid rgba(255, 217, 61, 0.3);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            max-width: 270mm;
+            width: 100%;
+        }
+
+        .quiz-title {
+            color: #ffd93d;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .quiz-item {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .point-box {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-top: 12px;
+        }
+
+        .point-title {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        @media screen {
+            body { overflow-y: auto; }
+            .slide {
+                margin: 0 auto 20px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- スライド1: タイトル -->
+    <section class="slide title-slide">
+        <h1>ALog製品群について学ぼう</h1>
+        <p class="subtitle">📚 新人研修資料</p>
+        <p class="learning-goal">
+            <strong style="color: #64c864;">🎯 この研修のゴール:</strong><br>
+            当社の主力製品であるALog製品群4つの名前・役割・違いを説明できるようになる
+        </p>
+        <p class="date">新人研修用教材</p>
+    </section>
+
+    <!-- スライド2: まず覚えよう！製品一覧 -->
+    <section class="slide">
+        <h2 class="section-title">📝 まず覚えよう！ALog製品は4つ</h2>
+        
+        <div class="product-overview">
+            <div class="product-card" style="border-color: rgba(0, 212, 255, 0.3);">
+                <div class="product-icon">🔍</div>
+                <div class="product-name" style="color: #00d4ff;">ALog</div>
+                <div class="product-abbr">（エーログ）</div>
+                <div class="product-desc">当社の<strong>主力製品</strong><br>統合ログ管理</div>
+            </div>
+            <div class="product-card" style="border-color: rgba(255, 217, 61, 0.3);">
+                <div class="product-icon">⚡</div>
+                <div class="product-name" style="color: #ffd93d;">ALog SMASH</div>
+                <div class="product-abbr">（スマッシュ）</div>
+                <div class="product-desc">中小企業向けの<br><strong>廉価版</strong>ALog</div>
+            </div>
+            <div class="product-card" style="border-color: rgba(100, 200, 100, 0.3);">
+                <div class="product-icon">📊</div>
+                <div class="product-name" style="color: #64c864;">Resource Athlete</div>
+                <div class="product-abbr">（リソースアスリート / 略称: RA）</div>
+                <div class="product-desc">サーバーの<br><strong>リソース監視</strong></div>
+            </div>
+            <div class="product-card" style="border-color: rgba(183, 148, 246, 0.3);">
+                <div class="product-icon">📡</div>
+                <div class="product-name" style="color: #b794f6;">ALog Syslog Receiver</div>
+                <div class="product-abbr">（略称: ASR）</div>
+                <div class="product-desc">Syslogの<br><strong>収集専用</strong>ツール</div>
+            </div>
+        </div>
+
+        <div class="highlight tip" style="max-width: 270mm; margin-top: 20px;">
+            <strong style="color: #64c864;">💡 覚え方のコツ:</strong>
+            <span style="margin-left: 10px;">「ALog」が基本形。SMASH/RA/ASR は ALog を補完する製品と覚えよう！</span>
+        </div>
+
+        <div class="point-box" style="max-width: 270mm;">
+            <p class="point-title">🔑 略称は必ず覚えよう！</p>
+            <p style="font-size: 0.9rem;">社内では略称で呼ばれることが多いです：<span class="keyword green">RA</span> <span class="keyword purple">ASR</span></p>
+        </div>
+    </section>
+
+    <!-- スライド3: そもそもログ管理とは？ -->
+    <section class="slide">
+        <h2 class="section-title">🤔 そもそも「ログ管理」って何？</h2>
+        
+        <div class="card-container">
+            <div class="card primary">
+                <h3><span class="icon primary">📋</span>ログとは？</h3>
+                <ul>
+                    <li>コンピュータやシステムの<strong>動作記録</strong></li>
+                    <li>「いつ」「誰が」「何をした」が記録される</li>
+                    <li>例: ファイルを開いた、ログインした、等</li>
+                    <li>セキュリティや監査で非常に重要</li>
+                </ul>
+            </div>
+            <div class="card secondary">
+                <h3><span class="icon secondary">❓</span>なぜログ管理が必要？</h3>
+                <ul>
+                    <li><strong>セキュリティ:</strong> 不正アクセスの検知</li>
+                    <li><strong>内部統制:</strong> 情報漏洩の追跡</li>
+                    <li><strong>トラブル対応:</strong> 障害原因の調査</li>
+                    <li><strong>監査対応:</strong> 法令・規制への対応</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card accent" style="max-width: 270mm; margin-top: 15px;">
+            <h3><span class="icon accent">🏢</span>お客様がログ管理を必要とする場面（実例）</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px;">
+                <div>
+                    <p style="font-size: 0.85rem; color: #ff6b6b; font-weight: bold;">セキュリティ事故</p>
+                    <p style="font-size: 0.8rem; color: #a0a0a0;">「退職者が顧客情報を持ち出したかも...」→ ファイルアクセスログで調査</p>
+                </div>
+                <div>
+                    <p style="font-size: 0.85rem; color: #ff6b6b; font-weight: bold;">コンプライアンス</p>
+                    <p style="font-size: 0.8rem; color: #a0a0a0;">「監査でログの提出を求められた」→ レポート機能で対応</p>
+                </div>
+                <div>
+                    <p style="font-size: 0.85rem; color: #ff6b6b; font-weight: bold;">障害対応</p>
+                    <p style="font-size: 0.8rem; color: #a0a0a0;">「システムが突然止まった！」→ ログから原因を特定</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight" style="max-width: 270mm; margin-top: 15px;">
+            <strong style="color: #00d4ff;">📌 一言でまとめると:</strong>
+            <span style="margin-left: 10px;">ログ管理製品 = <strong>企業の「防犯カメラ」</strong>のようなもの。何か起きた時に「誰が何をしたか」追跡できる</span>
+        </div>
+    </section>
+
+    <!-- スライド4: ALog（主力製品） -->
+    <section class="slide">
+        <h2 class="section-title">
+            <span style="color: #00d4ff;">ALog（エーログ）</span>
+            <span class="product-badge badge-flagship">🌟 主力製品</span>
+        </h2>
+        
+        <div class="card-container">
+            <div class="card primary">
+                <h3><span class="icon primary">📖</span>これだけは覚えよう</h3>
+                <ul>
+                    <li>当社の<strong>メイン製品・看板商品</strong></li>
+                    <li>様々なシステムのログを<strong>一元管理</strong></li>
+                    <li>ログの収集→保存→検索→分析→レポートが可能</li>
+                    <li>中〜大規模企業がメインターゲット</li>
+                </ul>
+            </div>
+            <div class="card secondary">
+                <h3><span class="icon secondary">🎯</span>どんなログを集められる？</h3>
+                <ul>
+                    <li><strong>Windows:</strong> ファイルサーバー、AD、イベントログ</li>
+                    <li><strong>NAS:</strong> 各社ファイルサーバーのアクセスログ</li>
+                    <li><strong>データベース:</strong> SQL Server、Oracle等</li>
+                    <li><strong>クラウド:</strong> Microsoft 365、Box等</li>
+                </ul>
+            </div>
+            <div class="card success">
+                <h3><span class="icon success">💼</span>よくある導入理由</h3>
+                <ul>
+                    <li>「ファイルサーバーの<strong>誰が何を見たか</strong>知りたい」</li>
+                    <li>「<strong>内部不正</strong>を監視・抑止したい」</li>
+                    <li>「<strong>監査対応</strong>でログ提出が必要」</li>
+                    <li>「<strong>J-SOX</strong>やPマーク対応したい」</li>
+                </ul>
+            </div>
+            <div class="card accent">
+                <h3><span class="icon accent">⚙️</span>提供形態</h3>
+                <ul>
+                    <li><strong>オンプレミス版:</strong> お客様環境に構築</li>
+                    <li><strong>クラウド版:</strong> SaaS形式で提供</li>
+                    <li>※両方を組み合わせるハイブリッド構成も可能</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="point-box" style="max-width: 270mm;">
+            <p class="point-title">🔑 新人が覚えるべきポイント</p>
+            <p style="font-size: 0.9rem;">ALogは「<strong>ファイルサーバーのアクセスログ管理</strong>」で特に強い。「誰がいつどのファイルを開いた/編集した/削除した」がわかる！</p>
+        </div>
+    </section>
+
+    <!-- スライド5: ALog SMASH -->
+    <section class="slide">
+        <h2 class="section-title">
+            <span style="color: #ffd93d;">ALog SMASH（スマッシュ）</span>
+            <span class="product-badge badge-smb">💰 廉価版</span>
+        </h2>
+        
+        <div class="card-container">
+            <div class="card secondary">
+                <h3><span class="icon secondary">📖</span>これだけは覚えよう</h3>
+                <ul>
+                    <li>ALogの<strong>廉価版・簡易版</strong></li>
+                    <li>中小企業や部門単位での導入向け</li>
+                    <li><strong>低価格</strong>で導入しやすい</li>
+                    <li>機能を絞ってシンプルにした製品</li>
+                </ul>
+            </div>
+            <div class="card primary">
+                <h3><span class="icon primary">🔄</span>ALogとの違い</h3>
+                <ul>
+                    <li>対応ログの種類が<strong>限定的</strong></li>
+                    <li>高度な分析機能は<strong>省略</strong></li>
+                    <li>大規模環境には<strong>非対応</strong></li>
+                    <li>その分<strong>価格が安い</strong>！</li>
+                </ul>
+            </div>
+            <div class="card success">
+                <h3><span class="icon success">👥</span>こんなお客様向け</h3>
+                <ul>
+                    <li>「まずは<strong>お試し</strong>でログ管理を始めたい」</li>
+                    <li>「<strong>予算が限られている</strong>」</li>
+                    <li>「IT担当者が<strong>少ない/いない</strong>」</li>
+                    <li>「最低限の監視で<strong>十分</strong>」</li>
+                </ul>
+            </div>
+            <div class="card purple">
+                <h3><span class="icon purple">📈</span>アップグレードパス</h3>
+                <ul>
+                    <li>SMASHで始めて、後からALogに移行可能</li>
+                    <li>蓄積したログデータも引き継げる</li>
+                    <li>操作感が同じなので移行がスムーズ</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight warning" style="max-width: 270mm; margin-top: 15px;">
+            <strong style="color: #ffd93d;">💡 営業的な位置づけ:</strong>
+            <span style="margin-left: 10px;">「ALogは高い...」と言われたら SMASH を提案。スモールスタートしてもらい、将来的にALogへアップセルするパターンも多い</span>
+        </div>
+    </section>
+
+    <!-- スライド6: Resource Athlete -->
+    <section class="slide">
+        <h2 class="section-title">
+            <span style="color: #64c864;">Resource Athlete（RA）</span>
+            <span class="product-badge badge-monitoring">📊 リソース監視</span>
+        </h2>
+        
+        <div class="card-container">
+            <div class="card success">
+                <h3><span class="icon success">📖</span>これだけは覚えよう</h3>
+                <ul>
+                    <li>サーバーの<strong>リソース（CPU/メモリ/ディスク）を監視</strong></li>
+                    <li>ログ管理ではなく<strong>「監視」</strong>製品</li>
+                    <li>ALogと<strong>組み合わせて</strong>使うことが多い</li>
+                    <li>略称「<strong>RA</strong>」で呼ばれることが多い</li>
+                </ul>
+            </div>
+            <div class="card primary">
+                <h3><span class="icon primary">👀</span>何を監視できる？</h3>
+                <ul>
+                    <li><strong>CPU使用率:</strong> 処理が重くないか</li>
+                    <li><strong>メモリ使用率:</strong> メモリ不足になっていないか</li>
+                    <li><strong>ディスク容量:</strong> 空き容量は足りているか</li>
+                    <li><strong>ネットワーク:</strong> 通信量は正常か</li>
+                </ul>
+            </div>
+            <div class="card secondary">
+                <h3><span class="icon secondary">🤔</span>ALogとの違いは？</h3>
+                <ul>
+                    <li><strong>ALog:</strong> 「誰が何をした」を記録（<strong>操作ログ</strong>）</li>
+                    <li><strong>RA:</strong> 「今どんな状態か」を監視（<strong>状態監視</strong>）</li>
+                    <li>目的が違うので<strong>補完関係</strong>にある</li>
+                    <li>両方セットで導入するお客様も多い</li>
+                </ul>
+            </div>
+            <div class="card accent">
+                <h3><span class="icon accent">💼</span>よくある導入理由</h3>
+                <ul>
+                    <li>「サーバーが重くなる<strong>前に</strong>気づきたい」</li>
+                    <li>「ディスク容量が<strong>いっぱいになる前に</strong>警告がほしい」</li>
+                    <li>「<strong>障害の予兆</strong>を検知したい」</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="point-box" style="max-width: 270mm;">
+            <p class="point-title">🔑 新人が覚えるべきポイント</p>
+            <p style="font-size: 0.9rem;">RA = <strong>サーバーの健康診断ツール</strong>。ALogが「行動記録」なら、RAは「体温・血圧測定」のイメージ！</p>
+        </div>
+    </section>
+
+    <!-- スライド7: ALog Syslog Receiver -->
+    <section class="slide">
+        <h2 class="section-title">
+            <span style="color: #b794f6;">ALog Syslog Receiver（ASR）</span>
+            <span class="product-badge badge-log">📡 ログ収集</span>
+        </h2>
+        
+        <div class="card-container">
+            <div class="card purple">
+                <h3><span class="icon purple">📖</span>これだけは覚えよう</h3>
+                <ul>
+                    <li><strong>Syslog</strong>というプロトコルでログを受信するツール</li>
+                    <li>ネットワーク機器やLinuxのログ収集に使う</li>
+                    <li>ALogの<strong>補助ツール</strong>的な位置づけ</li>
+                    <li>略称「<strong>ASR</strong>」で呼ばれる</li>
+                </ul>
+            </div>
+            <div class="card primary">
+                <h3><span class="icon primary">🤔</span>Syslogとは？</h3>
+                <ul>
+                    <li>ネットワーク機器がログを送る<strong>標準規格</strong></li>
+                    <li>ファイアウォール、ルーター、スイッチなどが対応</li>
+                    <li>Linuxサーバーも標準でSyslog出力可能</li>
+                    <li>※WindowsはSyslogを使わない（別の形式）</li>
+                </ul>
+            </div>
+            <div class="card secondary">
+                <h3><span class="icon secondary">🔧</span>なぜ必要？</h3>
+                <ul>
+                    <li>ALog単体では<strong>Syslogを直接受信できない</strong></li>
+                    <li>ASRがSyslogを受け取り、ALogに渡す役割</li>
+                    <li>いわば「<strong>通訳</strong>」のような存在</li>
+                </ul>
+            </div>
+            <div class="card success">
+                <h3><span class="icon success">🌐</span>対象となる機器</h3>
+                <ul>
+                    <li><strong>ファイアウォール:</strong> Fortinet、Palo Alto等</li>
+                    <li><strong>ネットワーク機器:</strong> Cisco、Juniper等</li>
+                    <li><strong>Linuxサーバー:</strong> CentOS、Ubuntu等</li>
+                    <li><strong>各種アプライアンス</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="max-width: 270mm; margin-top: 15px;">
+            <strong style="color: #00d4ff;">📌 一言でまとめると:</strong>
+            <span style="margin-left: 10px;">ASR = <strong>ALogの「Syslog専用の入り口」</strong>。ネットワーク機器のログをALogで管理したい時に必要になる</span>
+        </div>
+    </section>
+
+    <!-- スライド8: 製品の関係性 -->
+    <section class="slide">
+        <h2 class="section-title">📊 4製品の関係性を理解しよう</h2>
+        
+        <div style="display: flex; gap: 20px; max-width: 270mm; margin-top: 10px;">
+            <div class="card primary" style="flex: 1; text-align: center;">
+                <h3 style="justify-content: center; font-size: 1.3rem;"><span class="icon primary" style="width: 40px; height: 40px; font-size: 1.3rem;">🔍</span>ALog</h3>
+                <p style="font-size: 0.85rem; margin: 10px 0; color: #00d4ff;">中核製品（フル機能）</p>
+                <p style="font-size: 0.75rem; color: #a0a0a0;">様々なログを<br>統合管理・分析</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; flex: 0.8;">
+                <div class="card secondary" style="text-align: center; padding: 10px;">
+                    <p style="font-size: 0.9rem; color: #ffd93d; font-weight: bold;">⚡ SMASH</p>
+                    <p style="font-size: 0.7rem; color: #a0a0a0;">ALogの廉価版</p>
+                </div>
+                <div class="card success" style="text-align: center; padding: 10px;">
+                    <p style="font-size: 0.9rem; color: #64c864; font-weight: bold;">📊 RA</p>
+                    <p style="font-size: 0.7rem; color: #a0a0a0;">リソース監視を追加</p>
+                </div>
+                <div class="card purple" style="text-align: center; padding: 10px;">
+                    <p style="font-size: 0.9rem; color: #b794f6; font-weight: bold;">📡 ASR</p>
+                    <p style="font-size: 0.7rem; color: #a0a0a0;">Syslog収集を追加</p>
+                </div>
+            </div>
+        </div>
+
+        <table style="max-width: 270mm; margin-top: 15px;">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">製品</th>
+                    <th style="width: 25%;">一言で言うと</th>
+                    <th style="width: 25%;">ALogとの関係</th>
+                    <th style="width: 30%;">覚えておくキーワード</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="color: #00d4ff; font-weight: bold;">ALog</td>
+                    <td>統合ログ管理の中核</td>
+                    <td>—（これが本体）</td>
+                    <td><span class="keyword">ファイルサーバー</span><span class="keyword">操作ログ</span></td>
+                </tr>
+                <tr>
+                    <td style="color: #ffd93d; font-weight: bold;">SMASH</td>
+                    <td>ALogの廉価版</td>
+                    <td>機能を絞った別製品</td>
+                    <td><span class="keyword yellow">低価格</span><span class="keyword yellow">中小企業</span></td>
+                </tr>
+                <tr>
+                    <td style="color: #64c864; font-weight: bold;">RA</td>
+                    <td>リソース監視ツール</td>
+                    <td>ALogと組み合わせ</td>
+                    <td><span class="keyword green">CPU/メモリ</span><span class="keyword green">状態監視</span></td>
+                </tr>
+                <tr>
+                    <td style="color: #b794f6; font-weight: bold;">ASR</td>
+                    <td>Syslog収集ツール</td>
+                    <td>ALogの補助ツール</td>
+                    <td><span class="keyword purple">Syslog</span><span class="keyword purple">NW機器</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- スライド9: よくある組み合わせパターン -->
+    <section class="slide">
+        <h2 class="section-title">🔗 よくある導入パターン</h2>
+        
+        <div class="card-container-3">
+            <div class="card primary">
+                <h3><span class="icon primary">1️⃣</span>ALog単体</h3>
+                <p style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 8px;">最もベーシックな構成</p>
+                <ul>
+                    <li>ファイルサーバーのログ管理がメイン</li>
+                    <li>Windows環境中心のお客様</li>
+                    <li>まずはログ管理から始めたい</li>
+                </ul>
+            </div>
+            <div class="card secondary">
+                <h3><span class="icon secondary">2️⃣</span>ALog + RA</h3>
+                <p style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 8px;">ログ管理＋監視の人気構成</p>
+                <ul>
+                    <li>ログ管理とリソース監視を両立</li>
+                    <li>障害発生時の調査が楽になる</li>
+                    <li>運用管理を一元化したいお客様</li>
+                </ul>
+            </div>
+            <div class="card purple">
+                <h3><span class="icon purple">3️⃣</span>ALog + ASR</h3>
+                <p style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 8px;">ネットワーク機器も対象の構成</p>
+                <ul>
+                    <li>ファイアウォール等のログも収集</li>
+                    <li>Linuxサーバーがある環境</li>
+                    <li>セキュリティ重視のお客様</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card success" style="max-width: 270mm; margin-top: 15px;">
+            <h3><span class="icon success">🏆</span>フル構成: ALog + RA + ASR</h3>
+            <p style="font-size: 0.9rem; margin-top: 8px;">
+                <strong>ログ管理</strong>（ALog）+ <strong>リソース監視</strong>（RA）+ <strong>Syslog収集</strong>（ASR）で、<br>
+                IT環境全体を包括的に管理できる最も充実した構成。大企業やセキュリティ重視のお客様向け。
+            </p>
+        </div>
+
+        <div class="highlight warning" style="max-width: 270mm; margin-top: 15px;">
+            <strong style="color: #ffd93d;">💡 SMASHの場合:</strong>
+            <span style="margin-left: 10px;">SMASHは単体での利用が基本。RA/ASRとの組み合わせは、ALogにアップグレードしてから検討することが多い</span>
+        </div>
+    </section>
+
+    <!-- スライド10: S3オフロード機能 -->
+    <section class="slide">
+        <h2 class="section-title">☁️ ALogのS3オフロード機能</h2>
+        
+        <div class="card primary" style="max-width: 270mm; margin-bottom: 15px;">
+            <h3><span class="icon primary">⚙️</span>設定例</h3>
+            <div style="display: flex; gap: 30px; margin-top: 10px; font-size: 1rem;">
+                <div><strong style="color: #00d4ff;">アクセスログ保持期間:</strong> <span style="color: #ffd93d;">6カ月</span></div>
+                <div><strong style="color: #00d4ff;">S3オフロードタイミング:</strong> <span style="color: #ffd93d;">90日</span></div>
+            </div>
+        </div>
+
+        <!-- タイムラインテーブル -->
+        <div style="max-width: 270mm; width: 100%;">
+            <table style="margin-top: 0;">
+                <thead>
+                    <tr>
+                        <th style="width: 16%; text-align: center;">1月</th>
+                        <th style="width: 14%; text-align: center;">2月</th>
+                        <th style="width: 14%; text-align: center;">3月</th>
+                        <th style="width: 14%; text-align: center;">4月</th>
+                        <th style="width: 14%; text-align: center;">5月</th>
+                        <th style="width: 14%; text-align: center;">6月</th>
+                        <th style="width: 14%; text-align: center;">...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3" style="background: rgba(255, 217, 61, 0.25); text-align: center; border: 2px solid rgba(255, 217, 61, 0.5);">
+                            <strong style="color: #ffd93d;">💾 ローカルディスクに保存</strong><br>
+                            <span style="font-size: 0.9rem; color: #a0a0a0;">90日間</span>
+                        </td>
+                        <td colspan="4" style="background: transparent;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="background: transparent;"></td>
+                        <td colspan="3" style="background: rgba(100, 200, 100, 0.25); text-align: center; border: 2px solid rgba(100, 200, 100, 0.5);">
+                            <strong style="color: #64c864;">☁️ S3に保存</strong><br>
+                            <span style="font-size: 0.9rem; color: #a0a0a0;">90日後〜6カ月まで</span>
+                        </td>
+                        <td style="background: transparent;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Webコンソール検索例 -->
+        <div class="card secondary" style="max-width: 270mm; margin-top: 15px;">
+            <h3><span class="icon secondary">🖥️</span>Webコンソールでの検索動作</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 12px;">
+                <div style="background: rgba(255, 217, 61, 0.1); border: 2px solid rgba(255, 217, 61, 0.4); border-radius: 10px; padding: 12px;">
+                    <p style="font-size: 0.95rem; font-weight: bold; color: #ffd93d; margin-bottom: 8px;">📅 1/15〜2/15 を検索</p>
+                    <p style="font-size: 0.85rem; color: #a0a0a0;">→ <strong style="color: #ffd93d;">ローカル</strong>のデータを検索</p>
+                </div>
+                <div style="background: rgba(100, 200, 100, 0.1); border: 2px solid rgba(100, 200, 100, 0.4); border-radius: 10px; padding: 12px;">
+                    <p style="font-size: 0.95rem; font-weight: bold; color: #64c864; margin-bottom: 8px;">📅 4/3〜6/15 を検索</p>
+                    <p style="font-size: 0.85rem; color: #a0a0a0;">→ <strong style="color: #64c864;">S3</strong>のデータを検索</p>
+                </div>
+                <div style="background: rgba(183, 148, 246, 0.1); border: 2px solid rgba(183, 148, 246, 0.4); border-radius: 10px; padding: 12px;">
+                    <p style="font-size: 0.95rem; font-weight: bold; color: #b794f6; margin-bottom: 8px;">📅 3/15〜4/15 を検索</p>
+                    <p style="font-size: 0.85rem; color: #a0a0a0;">→ <strong style="color: #b794f6;">ローカルもS3も</strong>検索</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight tip" style="max-width: 270mm; margin-top: 15px;">
+            <strong style="color: #64c864;">💡 ポイント:</strong>
+            <span style="margin-left: 10px;">検索期間に応じて<strong>自動的に適切なストレージを検索</strong>。ユーザーはデータの保存先を意識せずにログ検索が可能！</span>
+        </div>
+    </section>
+
+    <!-- スライド11: 確認クイズ -->
+    <section class="slide">
+        <h2 class="section-title">✅ 確認クイズ</h2>
+        
+        <div class="quiz-box">
+            <p class="quiz-title">🤔 以下の質問に答えられますか？</p>
+            <div class="quiz-item">
+                <strong>Q1.</strong> 当社の主力製品は何ですか？ → <span style="color: #888;">（　　　　　　）</span>
+            </div>
+            <div class="quiz-item">
+                <strong>Q2.</strong> Resource Athleteの略称は？ → <span style="color: #888;">（　　　　　　）</span>
+            </div>
+            <div class="quiz-item">
+                <strong>Q3.</strong> 中小企業向けの廉価版製品は？ → <span style="color: #888;">（　　　　　　）</span>
+            </div>
+            <div class="quiz-item">
+                <strong>Q4.</strong> Syslogを収集するツールの略称は？ → <span style="color: #888;">（　　　　　　）</span>
+            </div>
+            <div class="quiz-item">
+                <strong>Q5.</strong> ALogとRAの違いを一言で言うと？ → <span style="color: #888;">（　　　　　　）</span>
+            </div>
+        </div>
+
+        <div class="card success" style="max-width: 270mm; margin-top: 20px;">
+            <h3><span class="icon success">📝</span>解答</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; font-size: 0.9rem;">
+                <div><strong>Q1.</strong> <span style="color: #00d4ff;">ALog</span></div>
+                <div><strong>Q2.</strong> <span style="color: #64c864;">RA</span></div>
+                <div><strong>Q3.</strong> <span style="color: #ffd93d;">ALog SMASH（スマッシュ）</span></div>
+                <div><strong>Q4.</strong> <span style="color: #b794f6;">ASR</span></div>
+                <div style="grid-column: span 2;"><strong>Q5.</strong> ALogは<span style="color: #00d4ff;">「操作ログ（誰が何をした）」</span>、RAは<span style="color: #64c864;">「リソース監視（今の状態）」</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- スライド12: まとめ -->
+    <section class="slide">
+        <h2 class="section-title">📚 まとめ：これだけは覚えよう！</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; max-width: 270mm; margin-top: 10px;">
+            <div class="card primary" style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 5px;">🔍</div>
+                <p style="font-size: 1.1rem; color: #00d4ff;"><strong>ALog</strong></p>
+                <p style="font-size: 0.8rem; color: #a0a0a0; margin-top: 5px;">主力製品<br>統合ログ管理</p>
+            </div>
+            <div class="card secondary" style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 5px;">⚡</div>
+                <p style="font-size: 1.1rem; color: #ffd93d;"><strong>SMASH</strong></p>
+                <p style="font-size: 0.8rem; color: #a0a0a0; margin-top: 5px;">廉価版ALog<br>中小企業向け</p>
+            </div>
+            <div class="card success" style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 5px;">📊</div>
+                <p style="font-size: 1.1rem; color: #64c864;"><strong>RA</strong></p>
+                <p style="font-size: 0.8rem; color: #a0a0a0; margin-top: 5px;">リソース監視<br>CPU/メモリ等</p>
+            </div>
+            <div class="card purple" style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 5px;">📡</div>
+                <p style="font-size: 1.1rem; color: #b794f6;"><strong>ASR</strong></p>
+                <p style="font-size: 0.8rem; color: #a0a0a0; margin-top: 5px;">Syslog収集<br>NW機器対応</p>
+            </div>
+        </div>
+
+        <div class="point-box" style="max-width: 270mm; margin-top: 20px;">
+            <p class="point-title">🎯 研修のゴール達成チェック</p>
+            <div style="font-size: 0.9rem; margin-top: 8px;">
+                <p>✅ 4製品の<strong>名前と略称</strong>を言える</p>
+                <p>✅ 各製品の<strong>役割</strong>を一言で説明できる</p>
+                <p>✅ ALogと他3製品の<strong>違い・関係性</strong>を理解している</p>
+            </div>
+        </div>
+
+        <div class="highlight tip" style="max-width: 270mm; margin-top: 15px; text-align: center;">
+            <strong style="color: #64c864;">🚀 次のステップ:</strong>
+            <span style="margin-left: 10px;">実際に製品を触ってみよう！デモ環境やマニュアルで理解を深めていきましょう</span>
+        </div>
+    </section>
+
+</body>
+</html>

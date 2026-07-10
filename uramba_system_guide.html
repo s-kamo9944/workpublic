@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ウランバ説明資料</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1e293b;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: landscape;
+            margin: 0;
+        }
+
+        .slide {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 40px 60px;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .title-slide {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .title-slide h1 {
+            font-size: 5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 2.5rem;
+            color: #ea580c;
+            margin-bottom: 25px;
+            padding: 20px 50px;
+            background: rgba(249, 115, 22, 0.1);
+            border: 3px solid rgba(249, 115, 22, 0.3);
+            border-radius: 15px;
+        }
+
+        .learning-goal {
+            font-size: 1.5rem;
+            color: #475569;
+            margin-top: 30px;
+            padding: 20px 40px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 12px;
+            border-left: 5px solid #22c55e;
+        }
+
+        .date {
+            font-size: 1.4rem;
+            color: #64748b;
+            margin-top: 40px;
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            width: 100%;
+        }
+
+        .content-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin: 15px 0;
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box h3 {
+            color: #ea580c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .content-box p {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            color: #334155;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px 30px;
+            border-left: 5px solid #f97316;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-card h4 {
+            color: #ea580c;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #475569;
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .icon {
+            font-size: 2rem;
+        }
+
+        .flow-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .flow-step {
+            background: rgba(249, 115, 22, 0.1);
+            border: 3px solid rgba(249, 115, 22, 0.3);
+            border-radius: 20px;
+            padding: 25px 30px;
+            text-align: center;
+            width: 220px;
+        }
+
+        .flow-step .step-number {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+        }
+
+        .flow-step h4 {
+            color: #ea580c;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .flow-step p {
+            color: #475569;
+            font-size: 1.1rem;
+        }
+
+        .flow-arrow {
+            font-size: 3rem;
+            color: #f97316;
+        }
+
+        .list-content {
+            width: 100%;
+        }
+
+        .list-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-content li {
+            font-size: 1.4rem;
+            color: #334155;
+            padding: 18px 30px;
+            margin: 12px 0;
+            background: #ffffff;
+            border-radius: 12px;
+            border-left: 5px solid #f97316;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .list-content li::before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .highlight {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        .note-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 3px solid rgba(34, 197, 94, 0.3);
+            border-radius: 15px;
+            padding: 25px 35px;
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        .note-box h4 {
+            color: #16a34a;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        .note-box p {
+            color: #475569;
+            font-size: 1.25rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .column {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .column h4 {
+            color: #ea580c;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .column ul {
+            list-style: none;
+        }
+
+        .column li {
+            color: #334155;
+            font-size: 1.25rem;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .column li:last-child {
+            border-bottom: none;
+        }
+
+        /* システム構成図用スタイル */
+        .system-diagram {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .diagram-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .dept-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 120px;
+        }
+
+        .dept-box {
+            background: #f1f5f9;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 15px 18px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        .dept-box .dept-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .systems-area {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .system-box {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 12px;
+            padding: 18px 22px;
+            text-align: center;
+            min-width: 160px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .system-box.ally {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+            min-width: 200px;
+        }
+
+        .system-box.salesforce {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .system-box.cybozu {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .system-box h5 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .system-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .data-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .data-box {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .problem-callout {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 1.1rem;
+            color: #dc2626;
+            position: relative;
+        }
+
+        .problem-callout::before {
+            content: "⚠️";
+            margin-right: 8px;
+        }
+
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f97316;
+            font-size: 2rem;
+            padding: 8px;
+        }
+
+        .diagram-legend {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 5px;
+        }
+
+        .legend-color.sales { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+        .legend-color.core { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .legend-color.hr { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .legend-color.custom { background: linear-gradient(135deg, #10b981, #059669); }
+        .legend-color.uramba { background: linear-gradient(135deg, #f97316, #ea580c); }
+
+        .system-box.uramba {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            min-width: 280px;
+            padding: 22px 30px;
+        }
+
+        .system-box.uramba h5 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .benefit-callout {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid rgba(34, 197, 94, 0.4);
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 1.1rem;
+            color: #16a34a;
+        }
+
+        .benefit-callout::before {
+            content: "✓";
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* 移行対応表用スタイル */
+        .migration-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .migration-table th {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: #ffffff;
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #fdba74;
+        }
+
+        .migration-table td {
+            padding: 15px 20px;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #334155;
+        }
+
+        .migration-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        .migration-table .system-old {
+            color: #dc2626;
+        }
+
+        .migration-table .system-new {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .migration-table .category {
+            font-weight: 500;
+            color: #ea580c;
+        }
+
+        /* 業務フロー図用スタイル */
+        .flow-diagram {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .flow-section {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .flow-section-title {
+            font-size: 1.4rem;
+            color: #ea580c;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .flow-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-label {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .flow-box {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 10px;
+            padding: 12px 18px;
+            text-align: center;
+            min-width: 110px;
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .flow-box.salesforce {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+        }
+
+        .flow-box.uramba {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        .flow-box.ally {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .flow-box.inventory {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .flow-box.accounting {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .flow-box.future {
+            background: #f1f5f9;
+            border: 3px dashed #94a3b8;
+            color: #64748b;
+        }
+
+        .flow-box .box-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        .flow-box .box-detail {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .flow-arrow {
+            color: #3b82f6;
+            font-size: 1.5rem;
+        }
+
+        .flow-arrow.down {
+            transform: rotate(90deg);
+        }
+
+        .sub-flow {
+            margin-left: 120px;
+            padding-left: 20px;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .comparison-box {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-box h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .comparison-box.old h4 {
+            color: #dc2626;
+        }
+
+        .comparison-box.new h4 {
+            color: #16a34a;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .slide {
+            position: relative;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- スライド1: タイトル -->
+    <div class="slide title-slide">
+        <h1>ウランバ</h1>
+        <div class="subtitle">システム概要説明資料</div>
+        <div class="learning-goal">
+            📚 本資料の目的：ウランバの概要・機能・活用方法を理解する
+        </div>
+        <div class="date">作成日：2026年6月</div>
+        <div class="page-number">1 / 9</div>
+    </div>
+
+    <!-- スライド2: 移行理由 -->
+    <div class="slide">
+        <h2 class="slide-title">🔄 なぜウランバに移行するのか</h2>
+        <div class="content-box">
+            <h3><span class="icon">📌</span>現状の課題</h3>
+            <p>販売管理、在庫管理、購買管理のシステムリプレイスを検討中</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>⚠️ Allyの限界</h4>
+                <p>中小企業向けの製品で、年々パフォーマンスが遅くなって業務に支障が出ている</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔧 カスタマイズの煩雑化</h4>
+                <p>Allyに対してカスタマイズを重ねすぎて煩雑になっている</p>
+            </div>
+            <div class="feature-card">
+                <h4>📊 データの分散</h4>
+                <p>似たような情報が複数のシステム、DBで管理されており業務フローも複雑になりすぎている</p>
+            </div>
+            <div class="feature-card">
+                <h4>💼 Salesforce</h4>
+                <p>Salesforceも機能を活用しきれていない</p>
+            </div>
+        </div>
+        <div class="note-box">
+            <h4>🎯 目指す姿</h4>
+            <p>今後の会社の成長のためにも効率のよい、人的ミスが少なくなる業務フロー、システムを構築しなければいけない<br>
+            → <span class="highlight">これらの課題を解決するシステムとしてウランバを導入</span></p>
+        </div>
+        <div class="page-number">2 / 9</div>
+    </div>
+
+    <!-- スライド3: 現状のシステム構成 -->
+    <div class="slide">
+        <h2 class="slide-title">🏗️ 現状のシステム構成</h2>
+        <div class="system-diagram">
+            <!-- 上段：部門とシステム -->
+            <div class="diagram-row">
+                <!-- 左側：部門 -->
+                <div class="dept-column">
+                    <div class="dept-box">
+                        <span class="dept-icon">👥</span>
+                        営業事務
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">💼</span>
+                        営業
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">👨‍💻</span>
+                        エンジニア
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">🏭</span>
+                        KTC
+                    </div>
+                </div>
+
+                <!-- 中央：メインシステム群 -->
+                <div class="systems-area">
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box salesforce">
+                            <h5>SalesForce</h5>
+                            <p>営業管理＋顧客管理<br>＋商品管理</p>
+                        </div>
+                        <div class="problem-callout">2重管理になっている</div>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box ally">
+                            <h5>Ally</h5>
+                            <p>受注管理＋発注管理<br>＋原価計算＋請求管理</p>
+                        </div>
+                        <div class="problem-callout">動作が非常に遅い</div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box">
+                            <h5>販売大臣</h5>
+                            <p>在庫管理</p>
+                        </div>
+                        <div class="problem-callout">在庫管理が複雑</div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box cybozu">
+                            <h5>サイボウズ独自AP</h5>
+                            <p>作業管理</p>
+                        </div>
+                        <div class="problem-callout">大量のカスタムアプリ</div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box">
+                            <h5>顧客管理DB</h5>
+                            <p>顧客情報管理</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側：人事・経理システム -->
+                <div class="systems-area" style="max-width: 280px;">
+                    <div class="system-box">
+                        <h5>給与奉行</h5>
+                        <p>給与＋原価労務費</p>
+                    </div>
+                    <div class="system-box">
+                        <h5>TimePro</h5>
+                        <p>勤怠管理＋工数算出</p>
+                    </div>
+                    <div class="system-box">
+                        <h5>勘定奉行</h5>
+                        <p>財務処理＋原価配賦</p>
+                    </div>
+                    <div class="system-box">
+                        <h5>固定資産奉行</h5>
+                        <p>固定資産管理</p>
+                    </div>
+                </div>
+
+                <!-- 右端：部門 -->
+                <div class="dept-column">
+                    <div class="dept-box">
+                        <span class="dept-icon">👥</span>
+                        総務人事部
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">📊</span>
+                        財務経理部
+                    </div>
+                </div>
+            </div>
+
+            <!-- 課題サマリー -->
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 10px;">
+                <div class="problem-callout">請求の管理が最終的に紙</div>
+                <div class="problem-callout">システムが複雑すぎる</div>
+                <div class="problem-callout">事務のやることが多すぎる</div>
+                <div class="problem-callout">倉庫移動の管理も煩雑</div>
+            </div>
+
+            <!-- 凡例 -->
+            <div class="diagram-legend">
+                <div class="legend-item">
+                    <div class="legend-color sales"></div>
+                    <span>営業系システム</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color core"></div>
+                    <span>基幹システム（Ally）</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color hr"></div>
+                    <span>人事・経理系</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color custom"></div>
+                    <span>カスタムアプリ</span>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">3 / 9</div>
+    </div>
+
+    <!-- スライド4: 移行後のシステム構成 -->
+    <div class="slide">
+        <h2 class="slide-title">✨ 移行後のシステム構成</h2>
+        <div class="system-diagram">
+            <!-- 上段：部門とシステム -->
+            <div class="diagram-row">
+                <!-- 左側：部門 -->
+                <div class="dept-column">
+                    <div class="dept-box">
+                        <span class="dept-icon">👥</span>
+                        営業事務
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">💼</span>
+                        営業
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">👨‍💻</span>
+                        エンジニア
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">🏭</span>
+                        KTC
+                    </div>
+                </div>
+
+                <!-- 中央：ウランバ統合システム -->
+                <div class="systems-area">
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box uramba">
+                            <h5>🚀 ウランバ</h5>
+                            <p>営業管理＋顧客管理＋商品管理<br>
+                            受注管理＋発注管理＋原価計算＋請求管理<br>
+                            在庫管理</p>
+                        </div>
+                        <div class="benefit-callout">4システムを統合！</div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                        <div class="system-box cybozu">
+                            <h5>サイボウズ独自AP</h5>
+                            <p>作業管理</p>
+                        </div>
+                        <div class="benefit-callout">連携強化</div>
+                    </div>
+                </div>
+
+                <!-- 右側：人事・経理システム -->
+                <div class="systems-area" style="max-width: 280px;">
+                    <div class="system-box">
+                        <h5>給与奉行</h5>
+                        <p>給与＋原価労務費</p>
+                    </div>
+                    <div class="system-box">
+                        <h5>TimePro</h5>
+                        <p>勤怠管理＋工数算出</p>
+                    </div>
+                    <div class="system-box">
+                        <h5>勘定奉行</h5>
+                        <p>財務処理＋原価配賦</p>
+                    </div>
+                    <div class="system-box">
+                        <h5>固定資産奉行</h5>
+                        <p>固定資産管理</p>
+                    </div>
+                </div>
+
+                <!-- 右端：部門 -->
+                <div class="dept-column">
+                    <div class="dept-box">
+                        <span class="dept-icon">👥</span>
+                        総務人事部
+                    </div>
+                    <div class="dept-box">
+                        <span class="dept-icon">📊</span>
+                        財務経理部
+                    </div>
+                </div>
+            </div>
+
+            <!-- メリットサマリー -->
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 10px;">
+                <div class="benefit-callout">データの一元管理</div>
+                <div class="benefit-callout">業務フローの簡素化</div>
+                <div class="benefit-callout">パフォーマンス向上</div>
+                <div class="benefit-callout">2重入力の解消</div>
+            </div>
+
+            <!-- 凡例 -->
+            <div class="diagram-legend">
+                <div class="legend-item">
+                    <div class="legend-color uramba"></div>
+                    <span>ウランバ（新基幹システム）</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color hr"></div>
+                    <span>人事・経理系</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color custom"></div>
+                    <span>カスタムアプリ</span>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">4 / 9</div>
+    </div>
+
+    <!-- スライド5: システム概要 -->
+    <div class="slide">
+        <h2 class="slide-title">📋 ウランバとは</h2>
+        <div class="content-box">
+            <h3><span class="icon">🎯</span>システム概要</h3>
+            <p>
+                ウランバは<span class="highlight">Salesforceのプラットフォーム上で動作するシステム</span>です。<br>
+                今回、複数の業務をウランバに統合する予定です。
+            </p>
+        </div>
+        <table class="migration-table">
+            <thead>
+                <tr>
+                    <th>管理する内容</th>
+                    <th>現行システム</th>
+                    <th>移行システム</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="category">営業管理/見積書の作成等</td>
+                    <td class="system-old">Salesforce</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">契約管理</td>
+                    <td class="system-old">顧客管理DB</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">受発注管理/請求管理等</td>
+                    <td class="system-old">Ally</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">在庫管理/単価管理</td>
+                    <td class="system-old">販売大臣</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">シリアル管理</td>
+                    <td class="system-old">Excel</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">UBI製品限定：受注〜出荷管理</td>
+                    <td class="system-old">カスタムアプリ<br>Ui物販-受注・出荷依頼</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">UBI製品限定：在庫管理</td>
+                    <td class="system-old">カスタムアプリ<br>Ui物販-在庫管理</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">UBI製品限定：契約管理</td>
+                    <td class="system-old">カスタムアプリ<br>Ui物販-保守契約管理</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+                <tr>
+                    <td class="category">NP代行コード 発行依頼</td>
+                    <td class="system-old">カスタムアプリ<br>NP代行コード 発行依頼</td>
+                    <td class="system-new">ウランバ</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-number">5 / 9</div>
+    </div>
+
+    <!-- スライド6: Salesforceでの業務フロー -->
+    <div class="slide">
+        <h2 class="slide-title">📊 Salesforceでのイメージ（現行）</h2>
+        <div class="flow-diagram">
+            <div class="note-box" style="margin-bottom: 15px; background: rgba(8, 145, 178, 0.1); border-color: rgba(8, 145, 178, 0.3);">
+                <h4 style="color: #22d3ee;">💡 ポイント</h4>
+                <p>見積書を複数出したいときは「見積」を複数作る</p>
+            </div>
+            
+            <div class="flow-section">
+                <div class="flow-section-title">📌 案件から売上レコードまでの流れ</div>
+                <div class="flow-row">
+                    <div class="flow-box salesforce" style="min-width: 60px;">
+                        <div class="box-title">[案件]</div>
+                        <div class="box-detail">親</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="flow-box salesforce">
+                            <div class="box-title">[見積] SPD用</div>
+                            <div class="box-detail">販売商品「ALog」</div>
+                        </div>
+                        <div class="flow-box salesforce">
+                            <div class="box-title">[見積] SPD用</div>
+                            <div class="box-detail">販売商品「ALog」<br>販売商品「作業費」</div>
+                        </div>
+                        <div class="flow-box salesforce">
+                            <div class="box-title">[見積] Ni用</div>
+                            <div class="box-detail">販売商品「xxx」<br>販売商品「yyy」</div>
+                        </div>
+                        <div class="flow-box salesforce">
+                            <div class="box-title">[見積] Verona用</div>
+                            <div class="box-detail">販売商品「zzz」</div>
+                        </div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <div class="flow-box salesforce" style="padding: 4px 8px; font-size: 0.75rem;">
+                            <div class="box-title" style="font-size: 0.7rem;">見積明細：ALog</div>
+                        </div>
+                        <div class="flow-box salesforce" style="padding: 4px 8px; font-size: 0.75rem;">
+                            <div class="box-title" style="font-size: 0.7rem;">見積明細：ALog</div>
+                        </div>
+                        <div class="flow-box salesforce" style="padding: 4px 8px; font-size: 0.75rem;">
+                            <div class="box-title" style="font-size: 0.7rem;">見積明細：作業費</div>
+                        </div>
+                        <div class="flow-box salesforce" style="padding: 4px 8px; font-size: 0.75rem;">
+                            <div class="box-title" style="font-size: 0.7rem;">見積明細：xxx</div>
+                        </div>
+                        <div class="flow-box salesforce" style="padding: 4px 8px; font-size: 0.75rem;">
+                            <div class="box-title" style="font-size: 0.7rem;">見積明細：yyy</div>
+                        </div>
+                        <div class="flow-box salesforce" style="padding: 4px 8px; font-size: 0.75rem;">
+                            <div class="box-title" style="font-size: 0.7rem;">見積明細：zzz</div>
+                        </div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box salesforce" style="min-width: 100px;">
+                        <div class="box-title">売上レコード</div>
+                        <div class="box-detail" style="font-size: 0.65rem;">見積のうち受注したものの見積明細に対して作られる</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">6 / 9</div>
+    </div>
+
+    <!-- スライド7: ウランバでの業務フロー -->
+    <div class="slide">
+        <h2 class="slide-title">🚀 ウランバでのイメージ（移行後）</h2>
+        <div class="flow-diagram">
+            <div class="note-box" style="margin-bottom: 15px; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">
+                <h4 style="color: #fbbf24;">⚠️ 注意</h4>
+                <p>SalesforceのときとUI上の名前が変わってくることに注意</p>
+            </div>
+
+            <div class="flow-section">
+                <div class="flow-section-title">📌 旧システムだとSalesforce+Allyの部分</div>
+                <div class="flow-row">
+                    <div class="flow-box uramba" style="min-width: 70px;">
+                        <div class="box-title">[ビジネス]</div>
+                        <div class="box-detail">親</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="flow-box uramba">
+                            <div class="box-title">[提案] SPD用</div>
+                            <div class="box-detail">販売商品「ALog」</div>
+                        </div>
+                        <div class="flow-box uramba">
+                            <div class="box-title">[提案] SPD用</div>
+                            <div class="box-detail">販売商品「ALog」<br>販売商品「作業費」</div>
+                        </div>
+                        <div class="flow-box future">
+                            <div class="box-title">[提案見積？？？]</div>
+                            <div class="box-detail">いまはない気がする</div>
+                        </div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">受注確定</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">納品確定</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">請求確定</div>
+                        <div class="box-detail">売上データ</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box future">
+                        <div class="box-title">請求書発行</div>
+                        <div class="box-detail">は未来期限</div>
+                    </div>
+                </div>
+                <div style="margin-left: 90px; margin-top: 5px; font-size: 0.7rem; color: #a0a0a0;">
+                    ※ 見積書を複数出したいときは「通常」を複数作る
+                </div>
+            </div>
+
+            <div class="flow-section">
+                <div class="flow-section-title">📌 旧システムだとAlly+販売大臣の部分</div>
+                <div class="flow-row">
+                    <span class="flow-label">発注<br>(仕入)</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">発注</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">発生</div>
+                        <div class="box-detail">未発注/発注済み</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">検収</div>
+                        <div class="box-detail">未検収/検収済み</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">入庫</div>
+                        <div class="box-detail">未入庫/入庫済み</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box inventory">
+                        <div class="box-title">在庫</div>
+                        <div class="box-detail">Verona等</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box accounting">
+                        <div class="box-title">勘定奉行</div>
+                    </div>
+                </div>
+                <div class="sub-flow">
+                    <div class="flow-row">
+                        <div class="flow-box" style="background: rgba(100,100,100,0.4);">
+                            <div class="box-title">都度発注による仕入れ商品</div>
+                            <div class="box-detail">S1/NI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-section">
+                <div class="flow-section-title">📌 旧システムだと顧客管理DB相当</div>
+                <div class="flow-row">
+                    <span class="flow-label">契約管理</span>
+                    <div class="flow-box uramba">
+                        <div class="box-title">契約管理</div>
+                        <div class="box-detail">更新管理</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">7 / 9</div>
+    </div>
+
+    <!-- スライド8: ウランバ練習のための情報 -->
+    <div class="slide">
+        <h2 class="slide-title">📝 ウランバ練習のための情報</h2>
+        <div class="content-box">
+            <h3><span class="icon">🔧</span>練習環境について</h3>
+            <p>
+                現在は<span class="highlight">SalesforceのSandbox環境</span>で練習していただけます。<br>
+                使ってみたい方は<span class="highlight">加茂まで連絡</span>をいただければアカウントを用意します。
+            </p>
+            <p style="margin-top: 10px;">
+                <strong>🔗 Sandbox環境URL：</strong><br>
+                <a href="https://amiya--partial.sandbox.lightning.force.com/lightning/n/Tab" target="_blank" style="color: #f97316; word-break: break-all;">https://amiya--partial.sandbox.lightning.force.com/lightning/n/Tab</a>
+            </p>
+            <p style="margin-top: 10px;">
+                <strong>👤 ユーザー名：</strong>本番との切り分けのため、ユーザー名の後ろに<span class="highlight">.partial</span>がつきます。<br>
+                （例：yamada.taro@amiya.co.jp → yamada.taro@amiya.co.jp.partial）
+            </p>
+            <p style="margin-top: 10px; padding: 10px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b; border-radius: 4px;">
+                <strong style="color: #f59e0b;">⚠️ アカウントについて：</strong><br>
+                アカウント数に制限があるため、どこかのタイミングで共用アカウントを作成する可能性があります。
+            </p>
+        </div>
+        <div class="content-box" style="margin-top: 20px;">
+            <h3><span class="icon">📦</span>ウランバの開発状況</h3>
+            <p>
+                実際のウランバは<span class="highlight">パッケージ商品</span>であり、<br>
+                そこに<span class="highlight">網屋専用の開発</span>を入れてもらうことになっています。
+            </p>
+            <p style="margin-top: 10px; padding: 10px; background: rgba(239, 68, 68, 0.1); border-left: 3px solid #ef4444; border-radius: 4px;">
+                <strong style="color: #ef4444;">🚧 開発中の注意点：</strong><br>
+                開発中のため、まだ実施できない手順があります。ご了承ください。
+            </p>
+        </div>
+        <div class="note-box" style="margin-top: 20px;">
+            <h4>📞 お問い合わせ先</h4>
+            <p>操作中の疑問点については、<span class="highlight">加茂</span> または <span class="highlight">同チームの関係者</span>までご連絡ください。</p>
+        </div>
+        <div class="page-number">8 / 9</div>
+    </div>
+
+    <!-- スライド9: 関係性の図 -->
+    <div class="slide">
+        <h2 class="slide-title">🔗 ウランバ導入における関係性</h2>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 60px;">
+            <!-- 網屋 -->
+            <div style="border: 3px solid #1e293b; padding: 40px 30px; min-width: 150px; text-align: center; background: #fff;">
+                <span style="font-size: 1.5rem; font-weight: bold; color: #f97316;">網屋</span>
+            </div>
+            
+            <!-- 矢印1 -->
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="font-size: 1rem; margin-bottom: 5px;">購入</span>
+                <span style="font-size: 2rem;">→</span>
+            </div>
+            
+            <!-- クラウズスパイス社 -->
+            <div style="border: 3px solid #1e293b; padding: 30px 20px; min-width: 250px; text-align: center; background: #fff;">
+                <span style="font-size: 1.3rem; font-weight: bold; color: #1e293b;">クラウズスパイス社</span>
+                <br><br>
+                <span style="font-size: 1.2rem; color: #f97316;">製品名「ウランバ」</span>
+                <br><br>
+                <span style="font-size: 0.95rem; color: #64748b;">Salesforceコンサルティングパートナー</span>
+            </div>
+            
+            <!-- 矢印2 -->
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="font-size: 1rem; margin-bottom: 5px;">購入</span>
+                <span style="font-size: 2rem;">→</span>
+            </div>
+            
+            <!-- Salesforce社 -->
+            <div style="border: 3px solid #1e293b; padding: 40px 30px; min-width: 150px; text-align: center; background: #fff;">
+                <span style="font-size: 1.5rem; font-weight: bold; color: #1e293b;">Salesforce社</span>
+            </div>
+        </div>
+        <div class="note-box" style="margin-top: 50px;">
+            <h4>📌 ポイント</h4>
+            <p>ウランバは<span class="highlight">クラウズスパイス社</span>が提供するSalesforceプラットフォーム上のパッケージ製品です。<br>
+            クラウズスパイス社はSalesforceコンサルティングパートナーとして、Salesforce社からライセンスを購入し、網屋向けにカスタマイズしたシステムを提供しています。</p>
+        </div>
+        <div class="page-number">9 / 9</div>
+    </div>
+
+</body>
+</html>
