@@ -198,19 +198,21 @@
         .toc-list {
             list-style: none;
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 30px;
         }
 
         .toc-list li {
-            padding: 20px 35px;
-            margin: 12px 0;
+            padding: 14px 24px;
             background: #f8fafc;
             border-radius: 8px;
             border-left: 5px solid #1e3a5f;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .toc-number {
@@ -607,17 +609,17 @@
                 <div class="kpi-card" style="padding: 20px 25px;">
                     <div class="kpi-label" style="font-size: 1.1rem;">全Issue数</div>
                     <div class="kpi-value" style="font-size: 2.5rem;">1,325件</div>
-                    <div class="kpi-target" style="font-size: 0.95rem;">終了: 1,084件 / 破棄: 241件</div>
+                    <div class="kpi-target" style="font-size: 0.95rem;">終了: 1,084件</div>
                 </div>
                 <div class="kpi-card" style="padding: 20px 25px;">
                     <div class="kpi-label" style="font-size: 1.1rem;">ストーリー</div>
                     <div class="kpi-value" style="font-size: 2.5rem;">744件</div>
-                    <div class="kpi-target" style="font-size: 0.95rem;">終了: 565件 / 破棄: 179件</div>
+                    <div class="kpi-target" style="font-size: 0.95rem;">終了: 565件</div>
                 </div>
                 <div class="kpi-card" style="padding: 20px 25px;">
                     <div class="kpi-label" style="font-size: 1.1rem;">バグ</div>
                     <div class="kpi-value warning" style="font-size: 2.5rem;">581件</div>
-                    <div class="kpi-target" style="font-size: 0.95rem;">終了: 519件 / 破棄: 62件</div>
+                    <div class="kpi-target" style="font-size: 0.95rem;">終了: 519件</div>
                 </div>
             </div>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
@@ -646,7 +648,7 @@
                     </ul>
                 </div>
                 <div class="card" style="padding: 18px 22px;">
-                    <div class="card-title" style="font-size: 1.1rem; margin-bottom: 10px; color: #7c3aed;">⚙️ Quartz→Orleans移行</div>
+                    <div class="card-title" style="font-size: 1.1rem; margin-bottom: 10px; color: #7c3aed;">⚙️ スケジュール管理 Quartz→Orleans移行</div>
                     <ul style="font-size: 0.95rem; color: #4a5568; margin: 0; padding-left: 18px; line-height: 1.6;">
                         <li><strong>マルチノード一元管理</strong></li>
                         <li><strong>負荷分散・スケールアウト</strong></li>
@@ -741,6 +743,7 @@
     <div class="slide">
         <h2 class="section-title">NewALog 開発におけるAI活用</h2>
         <div class="content-area">
+            <p style="font-size: 1.15rem; color: #1e3a5f; text-align: center; margin: 0 0 15px 0; font-weight: 500;">これまでの開発の中で最も活発にAIを利用した開発となった。課題も多く出たが、その分知見がたまったことは大きな意味があった。</p>
             <div class="summary-box" style="padding: 20px 25px; margin-bottom: 20px; background: #fef3c7; border-color: #f59e0b;">
                 <p style="font-size: 1.1rem; margin: 0; line-height: 1.7;"><strong>結論:</strong> 生成AIは単なる質問回答ではなく、<span style="color: #1e3a5f; font-weight: 600;">不具合の発見後から、調査・起票・一次修正・PR作成・文書化までをつなぐ開発要員</span>として利用された。一方、成果を安定して出すうえでのボトルネックはAIの生成能力そのものより、<span style="color: #dc2626; font-weight: 600;">正しい仕様の入力、人によるレビュー、実機・QA検証、ジョブの安定運用</span>にあった。</p>
             </div>
