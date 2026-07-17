@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^git add -A; git commit -m \"2Q報告書: レイアウト調整、上期合計追加、AI活用コメント追加\"; git push$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

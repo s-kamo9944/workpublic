@@ -15,7 +15,7 @@
         }
 
         html {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         body {
@@ -309,7 +309,7 @@
             <li><span class="toc-number">04</span> ALog Cloud運用コスト状況</li>
             <li><span class="toc-number">05</span> ALog Cloud コスト推移グラフ</li>
             <li><span class="toc-number">06</span> New ALog v200 開発報告</li>
-            <li><span class="toc-number">07</span> New ALog v2.0.0 PJ振り返り</li>
+            <li><span class="toc-number">07</span> New ALog v2.0.0 PJ振り返り（QA観点）</li>
             <li><span class="toc-number">08</span> NewALog 開発におけるAI活用</li>
             <li><span class="toc-number">09</span> エスカレーション対応状況</li>
             <li><span class="toc-number">10</span> 顧客対応・営業案件の状況報告</li>
@@ -453,20 +453,25 @@
     <div class="slide">
         <h2 class="section-title">ALog Cloud運用コスト状況</h2>
         <div class="content-area">
-            <div class="kpi-grid">
+            <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="kpi-card">
+                    <div class="kpi-label">2026年上期合計</div>
+                    <div class="kpi-value" style="font-size: 2.5rem; color: #1e3a5f;">2,732万円</div>
+                    <div class="kpi-target">1月〜6月</div>
+                </div>
                 <div class="kpi-card">
                     <div class="kpi-label">2Q AWS支払額</div>
-                    <div class="kpi-value" style="font-size: 2.8rem;">1,477万円</div>
+                    <div class="kpi-value" style="font-size: 2.5rem;">1,477万円</div>
                     <div class="kpi-target">3ヶ月合計</div>
                 </div>
                 <div class="kpi-card">
                     <div class="kpi-label">6月契約数</div>
-                    <div class="kpi-value">185社</div>
+                    <div class="kpi-value" style="font-size: 2.5rem;">185社</div>
                     <div class="kpi-target">1Q比 +13社</div>
                 </div>
                 <div class="kpi-card">
                     <div class="kpi-label">1テナントあたりコスト</div>
-                    <div class="kpi-value" style="font-size: 2.8rem;">16,664円</div>
+                    <div class="kpi-value" style="font-size: 2.5rem;">16,664円</div>
                     <div class="kpi-target">2Q平均</div>
                 </div>
             </div>
@@ -593,6 +598,10 @@
                         <span style="font-size: 1rem; color: #4a5568;">1テナントコスト（円）</span>
                     </div>
                 </div>
+                <div style="margin-top: 15px; padding: 12px 18px; background: #fef2f2; border-left: 4px solid #dc2626; border-radius: 0 8px 8px 0;">
+                    <div style="font-size: 0.9rem; font-weight: 600; color: #dc2626; margin-bottom: 4px;">⚠️ AWS東京リージョン クォータ引き上げ却下多発</div>
+                    <p style="font-size: 0.8rem; color: #4a5568; margin: 0; line-height: 1.5;">日本企業のクラウド移行・AI利用増加により東京リージョン需要が急増。EC2 vCPU、GPU、Elastic IP等が逼迫し、クォータ審査が厳格化。利用実績が長く継続的なアカウントほど承認されやすく、段階的な申請（32→64→128 vCPU等）が推奨される。</p>
+                </div>
             </div>
         </div>
         <div class="slide-footer">
@@ -605,7 +614,7 @@
     <div class="slide">
         <h2 class="section-title">New ALog v200 開発報告</h2>
         <div class="content-area">
-            <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
+            <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
                 <div class="kpi-card" style="padding: 20px 25px;">
                     <div class="kpi-label" style="font-size: 1.1rem;">全Issue数</div>
                     <div class="kpi-value" style="font-size: 2.5rem;">1,325件</div>
@@ -620,6 +629,11 @@
                     <div class="kpi-label" style="font-size: 1.1rem;">バグ</div>
                     <div class="kpi-value warning" style="font-size: 2.5rem;">581件</div>
                     <div class="kpi-target" style="font-size: 0.95rem;">終了: 519件</div>
+                </div>
+                <div class="kpi-card" style="padding: 20px 25px;">
+                    <div class="kpi-label" style="font-size: 1.1rem;">テスト項目数</div>
+                    <div class="kpi-value" style="font-size: 2.5rem; color: #059669;">4,500件</div>
+                    <div class="kpi-target" style="font-size: 0.95rem;">QualityForward登録</div>
                 </div>
             </div>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
@@ -668,14 +682,14 @@
 
     <!-- スライド9: New ALog v2.0.0 PJ振り返り -->
     <div class="slide">
-        <h2 class="section-title">New ALog v2.0.0 PJ振り返り</h2>
+        <h2 class="section-title">New ALog v2.0.0 PJ振り返り（QA観点）</h2>
         <div class="content-area">
-            <div class="two-columns" style="gap: 25px;">
+            <div class="two-columns" style="gap: 18px;">
                 <!-- 左列: 課題と改善点 -->
                 <div>
-                    <div class="card" style="padding: 20px 25px; margin-bottom: 20px;">
-                        <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #dc2626;">🔴 主要課題</div>
-                        <ul style="font-size: 1rem; color: #4a5568; margin: 0; padding-left: 20px; line-height: 1.7;">
+                    <div class="card" style="padding: 14px 18px; margin-bottom: 12px;">
+                        <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #dc2626;">🔴 主要課題</div>
+                        <ul style="font-size: 0.9rem; color: #4a5568; margin: 0; padding-left: 18px; line-height: 1.5;">
                             <li><strong>仕様変更多発</strong>：スコープを最初から広げすぎ、テスト設計に修正が頻発</li>
                             <li><strong>仕様不明瞭</strong>：確認コストが高く、情報がissueに不足</li>
                             <li><strong>マイルストーン意識薄</strong>：目先にならないと火がつかない傾向</li>
@@ -683,9 +697,9 @@
                             <li><strong>AI過信</strong>：成果物レビューが不足、丸投げ傾向</li>
                         </ul>
                     </div>
-                    <div class="card" style="padding: 20px 25px;">
-                        <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #059669;">🟢 良かった点</div>
-                        <ul style="font-size: 1rem; color: #4a5568; margin: 0; padding-left: 20px; line-height: 1.7;">
+                    <div class="card" style="padding: 14px 18px;">
+                        <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #059669;">🟢 良かった点</div>
+                        <ul style="font-size: 0.9rem; color: #4a5568; margin: 0; padding-left: 18px; line-height: 1.5;">
                             <li><strong>負荷テスト実施</strong>：専任要員配置＆成果あり</li>
                             <li><strong>テスト計画作成</strong>：初手で計画を立てて開始できた</li>
                             <li><strong>AI活用推進</strong>：組織として積極活用の流れを構築</li>
@@ -694,38 +708,38 @@
                 </div>
                 <!-- 右列: 改善アクション -->
                 <div>
-                    <div class="card" style="padding: 20px 25px;">
-                        <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #2563eb;">📋 今後のアクション（優先度：高）</div>
-                        <table style="width: 100%; font-size: 1rem; border-collapse: collapse;">
+                    <div class="card" style="padding: 14px 18px;">
+                        <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #2563eb;">📋 今後のアクション（優先度：高）</div>
+                        <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
                             <tr style="background: #f1f5f9;">
-                                <th style="padding: 10px 15px; text-align: left; border-bottom: 1px solid #e2e8f0;">アクション</th>
-                                <th style="padding: 10px 15px; text-align: center; border-bottom: 1px solid #e2e8f0; width: 120px;">タイミング</th>
+                                <th style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #e2e8f0;">アクション</th>
+                                <th style="padding: 6px 10px; text-align: center; border-bottom: 1px solid #e2e8f0; width: 100px;">タイミング</th>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 15px; border-bottom: 1px solid #f1f5f9;">確定仕様の置き場を統一</td>
-                                <td style="padding: 10px 15px; text-align: center; border-bottom: 1px solid #f1f5f9;">次回PJ開始時</td>
+                                <td style="padding: 6px 10px; border-bottom: 1px solid #f1f5f9;">確定仕様の置き場を統一</td>
+                                <td style="padding: 6px 10px; text-align: center; border-bottom: 1px solid #f1f5f9;">次回PJ開始時</td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 15px; border-bottom: 1px solid #f1f5f9;">開発マイルストーンをQAがレビュー</td>
-                                <td style="padding: 10px 15px; text-align: center; border-bottom: 1px solid #f1f5f9;">次回PJ開始時</td>
+                                <td style="padding: 6px 10px; border-bottom: 1px solid #f1f5f9;">開発マイルストーンをQAがレビュー</td>
+                                <td style="padding: 6px 10px; text-align: center; border-bottom: 1px solid #f1f5f9;">次回PJ開始時</td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 15px; border-bottom: 1px solid #f1f5f9;">初手でテスト計画を作成</td>
-                                <td style="padding: 10px 15px; text-align: center; border-bottom: 1px solid #f1f5f9;">開発着手時</td>
+                                <td style="padding: 6px 10px; border-bottom: 1px solid #f1f5f9;">初手でテスト計画を作成</td>
+                                <td style="padding: 6px 10px; text-align: center; border-bottom: 1px solid #f1f5f9;">開発着手時</td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 15px; border-bottom: 1px solid #f1f5f9;">QA関与ライン・エスカレ基準を明確化</td>
-                                <td style="padding: 10px 15px; text-align: center; border-bottom: 1px solid #f1f5f9;">早期</td>
+                                <td style="padding: 6px 10px; border-bottom: 1px solid #f1f5f9;">QA関与ライン・エスカレ基準を明確化</td>
+                                <td style="padding: 6px 10px; text-align: center; border-bottom: 1px solid #f1f5f9;">早期</td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 15px;">リリース成果物チェックリスト作成</td>
-                                <td style="padding: 10px 15px; text-align: center;">大規模リリース前</td>
+                                <td style="padding: 6px 10px;">リリース成果物チェックリスト作成</td>
+                                <td style="padding: 6px 10px; text-align: center;">大規模リリース前</td>
                             </tr>
                         </table>
                     </div>
-                    <div class="summary-box" style="margin-top: 20px; padding: 18px 22px;">
-                        <div style="font-size: 1.1rem; font-weight: 600; color: #1e3a5f; margin-bottom: 8px;">次回PJで最低限やるべきこと</div>
-                        <div style="font-size: 1rem; color: #4a5568; line-height: 1.8;">
+                    <div class="summary-box" style="margin-top: 12px; padding: 12px 16px;">
+                        <div style="font-size: 0.95rem; font-weight: 600; color: #1e3a5f; margin-bottom: 6px;">次回PJで最低限やるべきこと</div>
+                        <div style="font-size: 0.85rem; color: #4a5568; line-height: 1.6;">
                             ① テスト計画を初手で作成　② 仕様の置き場を統一　③ マイルストーンをQAもレビュー<br/>
                             ④ 品質状況を定期共有　⑤ リリース成果物をチェックリスト化　⑥ QA懸念を早めに伝える運用
                         </div>
@@ -743,43 +757,43 @@
     <div class="slide">
         <h2 class="section-title">NewALog 開発におけるAI活用</h2>
         <div class="content-area">
-            <p style="font-size: 1.15rem; color: #1e3a5f; text-align: center; margin: 0 0 15px 0; font-weight: 500;">これまでの開発の中で最も活発にAIを利用した開発となった。課題も多く出たが、その分知見がたまったことは大きな意味があった。</p>
-            <div class="summary-box" style="padding: 20px 25px; margin-bottom: 20px; background: #fef3c7; border-color: #f59e0b;">
-                <p style="font-size: 1.1rem; margin: 0; line-height: 1.7;"><strong>結論:</strong> 生成AIは単なる質問回答ではなく、<span style="color: #1e3a5f; font-weight: 600;">不具合の発見後から、調査・起票・一次修正・PR作成・文書化までをつなぐ開発要員</span>として利用された。一方、成果を安定して出すうえでのボトルネックはAIの生成能力そのものより、<span style="color: #dc2626; font-weight: 600;">正しい仕様の入力、人によるレビュー、実機・QA検証、ジョブの安定運用</span>にあった。</p>
+            <p style="font-size: 1rem; color: #1e3a5f; text-align: center; margin: 0 0 10px 0; font-weight: 500;">これまでの開発の中で最も活発にAIを利用した開発となった。課題も多く出たが、その分知見がたまったことは大きな意味があった。</p>
+            <div class="summary-box" style="padding: 14px 18px; margin-bottom: 12px; background: #fef3c7; border-color: #f59e0b;">
+                <p style="font-size: 0.95rem; margin: 0; line-height: 1.6;"><strong>結論:</strong> 生成AIは単なる質問回答ではなく、<span style="color: #1e3a5f; font-weight: 600;">不具合の発見後から、調査・起票・一次修正・PR作成・文書化までをつなぐ開発要員</span>として利用された。一方、成果を安定して出すうえでのボトルネックはAIの生成能力そのものより、<span style="color: #dc2626; font-weight: 600;">正しい仕様の入力、人によるレビュー、実機・QA検証、ジョブの安定運用</span>にあった。</p>
             </div>
-            <div class="two-columns" style="gap: 25px;">
-                <div class="card" style="padding: 20px 25px;">
-                    <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #2563eb;">📋 Issue管理・調査</div>
-                    <ul style="font-size: 1rem; color: #4a5568; margin: 0; padding-left: 20px; line-height: 1.7;">
+            <div class="two-columns" style="gap: 18px;">
+                <div class="card" style="padding: 14px 18px;">
+                    <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #2563eb;">📋 Issue管理・調査</div>
+                    <ul style="font-size: 0.9rem; color: #4a5568; margin: 0; padding-left: 18px; line-height: 1.6;">
                         <li>Slack上の不具合報告を整理し、<strong>Jira Issue自動起票</strong></li>
                         <li>重複Issueやテストブロッカーの調査・分類</li>
-                        <li>OpenSearch、Orleans、移行処理、リスクスコアリング等のコード横断調査</li>
+                        <li>OpenSearch、Orleans、移行処理等のコード横断調査</li>
                         <li>QualityForwardのテストケースを参照した期待仕様の理解</li>
                     </ul>
                 </div>
-                <div class="card" style="padding: 20px 25px;">
-                    <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #059669;">🔧 コード修正・PR作成</div>
-                    <ul style="font-size: 1rem; color: #4a5568; margin: 0; padding-left: 20px; line-height: 1.7;">
+                <div class="card" style="padding: 14px 18px;">
+                    <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #059669;">🔧 コード修正・PR作成</div>
+                    <ul style="font-size: 0.9rem; color: #4a5568; margin: 0; padding-left: 18px; line-height: 1.6;">
                         <li>軽微な不具合の原因調査、コード修正、テスト追加、PR作成</li>
                         <li>AI作成PRに、調査・設計・レビュー観点・検証記録を併記</li>
                         <li>GitHub Actionsやパッケージビルド失敗のログ解析</li>
                     </ul>
                 </div>
             </div>
-            <div class="two-columns" style="gap: 25px; margin-top: 15px;">
-                <div class="card" style="padding: 20px 25px;">
-                    <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #7c3aed;">📝 ドキュメント作成</div>
-                    <ul style="font-size: 1rem; color: #4a5568; margin: 0; padding-left: 20px; line-height: 1.7;">
+            <div class="two-columns" style="gap: 18px; margin-top: 10px;">
+                <div class="card" style="padding: 14px 18px;">
+                    <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #7c3aed;">📝 ドキュメント作成</div>
+                    <ul style="font-size: 0.9rem; color: #4a5568; margin: 0; padding-left: 18px; line-height: 1.6;">
                         <li>ユーザーガイド、AIアラートのヘルプ、設定例</li>
                         <li>マイグレーションガイド案の作成</li>
                         <li>AIアラート用の学習データ・検知データ作成</li>
                     </ul>
                 </div>
-                <div class="card" style="padding: 20px 25px; background: #eff6ff;">
-                    <div class="card-title" style="font-size: 1.2rem; margin-bottom: 12px; color: #1e3a5f;">🎯 運用目標</div>
-                    <p style="font-size: 1.1rem; color: #4a5568; margin: 0; line-height: 1.7;">
+                <div class="card" style="padding: 14px 18px; background: #eff6ff;">
+                    <div class="card-title" style="font-size: 1rem; margin-bottom: 8px; color: #1e3a5f;">🎯 運用目標</div>
+                    <p style="font-size: 0.95rem; color: #4a5568; margin: 0; line-height: 1.6;">
                         軽微なバグをAIに担当させ、最終的に<br/>
-                        <span style="font-size: 2rem; font-weight: 700; color: #2563eb;">「1日50件のIssue解決」</span><br/>
+                        <span style="font-size: 1.6rem; font-weight: 700; color: #2563eb;">「1日50件のIssue解決」</span><br/>
                         を目標とする構想まで共有された
                     </p>
                 </div>
@@ -845,101 +859,104 @@
         <h2 class="section-title">エスカレーション対応状況</h2>
         <div class="content-area">
             <div class="kpi-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <div class="kpi-card">
-                    <div class="kpi-label">総件数</div>
-                    <div class="kpi-value">624件</div>
-                    <div class="kpi-target">2026年1月〜6月</div>
+                <div class="kpi-card" style="padding: 12px 18px;">
+                    <div class="kpi-label" style="font-size: 0.9rem;">総件数</div>
+                    <div class="kpi-value" style="font-size: 2rem;">624件</div>
+                    <div class="kpi-target" style="font-size: 0.8rem;">2026年1月〜6月</div>
                 </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">月平均</div>
-                    <div class="kpi-value">104件</div>
-                    <div class="kpi-target">624件 ÷ 6ヶ月</div>
+                <div class="kpi-card" style="padding: 12px 18px;">
+                    <div class="kpi-label" style="font-size: 0.9rem;">月平均</div>
+                    <div class="kpi-value" style="font-size: 2rem;">104件</div>
+                    <div class="kpi-target" style="font-size: 0.8rem;">624件 ÷ 6ヶ月</div>
                 </div>
             </div>
-            <div class="two-columns" style="margin-top: 25px; gap: 25px;">
-                <div class="card" style="padding: 20px 25px;">
-                    <div class="card-title" style="font-size: 1.2rem; margin-bottom: 15px;">月別起票推移（1月〜6月）</div>
-                    <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 150px; border-bottom: 2px solid #e2e8f0; padding: 0 10px;">
+            <div class="two-columns" style="margin-top: 15px; gap: 18px;">
+                <div class="card" style="padding: 14px 18px;">
+                    <div class="card-title" style="font-size: 1rem; margin-bottom: 10px;">月別起票推移（1月〜6月）</div>
+                    <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 100px; border-bottom: 2px solid #e2e8f0; padding: 0 8px;">
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 56px; background: linear-gradient(180deg, #64748b 0%, #94a3b8 100%); border-radius: 4px 4px 0 0; position: relative;">
-                                <span style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; font-weight: 600; color: #64748b;">76</span>
+                            <div style="width: 38px; height: 38px; background: linear-gradient(180deg, #64748b 0%, #94a3b8 100%); border-radius: 3px 3px 0 0; position: relative;">
+                                <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: #64748b;">76</span>
                             </div>
-                            <span style="font-size: 0.9rem; color: #4a5568;">1月</span>
+                            <span style="font-size: 0.75rem; color: #4a5568;">1月</span>
                         </div>
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 65px; background: linear-gradient(180deg, #64748b 0%, #94a3b8 100%); border-radius: 4px 4px 0 0; position: relative;">
-                                <span style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; font-weight: 600; color: #64748b;">88</span>
+                            <div style="width: 38px; height: 44px; background: linear-gradient(180deg, #64748b 0%, #94a3b8 100%); border-radius: 3px 3px 0 0; position: relative;">
+                                <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: #64748b;">88</span>
                             </div>
-                            <span style="font-size: 0.9rem; color: #4a5568;">2月</span>
+                            <span style="font-size: 0.75rem; color: #4a5568;">2月</span>
                         </div>
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 78px; background: linear-gradient(180deg, #64748b 0%, #94a3b8 100%); border-radius: 4px 4px 0 0; position: relative;">
-                                <span style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; font-weight: 600; color: #64748b;">105</span>
+                            <div style="width: 38px; height: 52px; background: linear-gradient(180deg, #64748b 0%, #94a3b8 100%); border-radius: 3px 3px 0 0; position: relative;">
+                                <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: #64748b;">105</span>
                             </div>
-                            <span style="font-size: 0.9rem; color: #4a5568;">3月</span>
+                            <span style="font-size: 0.75rem; color: #4a5568;">3月</span>
                         </div>
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 85px; background: linear-gradient(180deg, #1e3a5f 0%, #2563eb 100%); border-radius: 4px 4px 0 0; position: relative;">
-                                <span style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; font-weight: 600; color: #1e3a5f;">115</span>
+                            <div style="width: 38px; height: 57px; background: linear-gradient(180deg, #1e3a5f 0%, #2563eb 100%); border-radius: 3px 3px 0 0; position: relative;">
+                                <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: #1e3a5f;">115</span>
                             </div>
-                            <span style="font-size: 0.9rem; color: #4a5568;">4月</span>
+                            <span style="font-size: 0.75rem; color: #4a5568;">4月</span>
                         </div>
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 77px; background: linear-gradient(180deg, #1e3a5f 0%, #2563eb 100%); border-radius: 4px 4px 0 0; position: relative;">
-                                <span style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; font-weight: 600; color: #1e3a5f;">104</span>
+                            <div style="width: 38px; height: 52px; background: linear-gradient(180deg, #1e3a5f 0%, #2563eb 100%); border-radius: 3px 3px 0 0; position: relative;">
+                                <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; color: #1e3a5f;">104</span>
                             </div>
-                            <span style="font-size: 0.9rem; color: #4a5568;">5月</span>
+                            <span style="font-size: 0.75rem; color: #4a5568;">5月</span>
                         </div>
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 100px; background: linear-gradient(180deg, #dc2626 0%, #ef4444 100%); border-radius: 4px 4px 0 0; position: relative;">
-                                <span style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; font-weight: 700; color: #dc2626;">136</span>
+                            <div style="width: 38px; height: 68px; background: linear-gradient(180deg, #dc2626 0%, #ef4444 100%); border-radius: 3px 3px 0 0; position: relative;">
+                                <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: 700; color: #dc2626;">136</span>
                             </div>
-                            <span style="font-size: 0.9rem; color: #dc2626; font-weight: 600;">6月</span>
+                            <span style="font-size: 0.75rem; color: #dc2626; font-weight: 600;">6月</span>
                         </div>
                     </div>
-                    <p style="font-size: 1rem; color: #dc2626; margin-top: 12px; text-align: center; font-weight: 500;">6月は1月比79%増、5月比31%増。増加傾向継続</p>
+                    <p style="font-size: 0.85rem; color: #dc2626; margin-top: 8px; text-align: center; font-weight: 500;">6月は1月比79%増、5月比31%増</p>
                 </div>
-                <div class="card" style="padding: 20px 25px;">
-                    <div class="card-title" style="font-size: 1.2rem; margin-bottom: 15px;">対象製品別（上位6）</div>
-                    <table class="data-table" style="font-size: 1rem;">
+                <div class="card" style="padding: 14px 18px;">
+                    <div class="card-title" style="font-size: 1rem; margin-bottom: 10px;">対象製品別（上位6）</div>
+                    <table class="data-table" style="font-size: 0.85rem;">
                         <tbody>
                             <tr style="background: #fee2e2;">
-                                <td style="padding: 8px 12px;"><strong>NewALog</strong></td>
-                                <td style="padding: 8px 12px; text-align: right;"><strong>263件</strong></td>
-                                <td style="padding: 8px 12px; text-align: right; color: #dc2626;"><strong>42.1%</strong></td>
+                                <td style="padding: 5px 10px;"><strong>NewALog</strong></td>
+                                <td style="padding: 5px 10px; text-align: right;"><strong>263件</strong></td>
+                                <td style="padding: 5px 10px; text-align: right; color: #dc2626;"><strong>42.1%</strong></td>
                             </tr>
                             <tr style="background: #fef3c7;">
-                                <td style="padding: 8px 12px;">ALogCloud(SaaS)</td>
-                                <td style="padding: 8px 12px; text-align: right;">122件</td>
-                                <td style="padding: 8px 12px; text-align: right;">19.6%</td>
+                                <td style="padding: 5px 10px;">ALogCloud(SaaS)</td>
+                                <td style="padding: 5px 10px; text-align: right;">122件</td>
+                                <td style="padding: 5px 10px; text-align: right;">19.6%</td>
                             </tr>
                             <tr>
-                                <td style="padding: 8px 12px;">LCF</td>
-                                <td style="padding: 8px 12px; text-align: right;">33件</td>
-                                <td style="padding: 8px 12px; text-align: right;">5.3%</td>
+                                <td style="padding: 5px 10px;">LCF</td>
+                                <td style="padding: 5px 10px; text-align: right;">33件</td>
+                                <td style="padding: 5px 10px; text-align: right;">5.3%</td>
                             </tr>
                             <tr>
-                                <td style="padding: 8px 12px;">ALogConVerter</td>
-                                <td style="padding: 8px 12px; text-align: right;">33件</td>
-                                <td style="padding: 8px 12px; text-align: right;">5.3%</td>
+                                <td style="padding: 5px 10px;">ALogConVerter</td>
+                                <td style="padding: 5px 10px; text-align: right;">33件</td>
+                                <td style="padding: 5px 10px; text-align: right;">5.3%</td>
                             </tr>
                             <tr>
-                                <td style="padding: 8px 12px;">ALog for Windows</td>
-                                <td style="padding: 8px 12px; text-align: right;">28件</td>
-                                <td style="padding: 8px 12px; text-align: right;">4.5%</td>
+                                <td style="padding: 5px 10px;">ALog for Windows</td>
+                                <td style="padding: 5px 10px; text-align: right;">28件</td>
+                                <td style="padding: 5px 10px; text-align: right;">4.5%</td>
                             </tr>
                             <tr>
-                                <td style="padding: 8px 12px;">Any/EVA</td>
-                                <td style="padding: 8px 12px; text-align: right;">25件</td>
-                                <td style="padding: 8px 12px; text-align: right;">4.0%</td>
+                                <td style="padding: 5px 10px;">Any/EVA</td>
+                                <td style="padding: 5px 10px; text-align: right;">25件</td>
+                                <td style="padding: 5px 10px; text-align: right;">4.0%</td>
                             </tr>
                         </tbody>
                     </table>
-                    <p style="font-size: 1rem; color: #dc2626; margin-top: 10px; font-weight: 500;">NewALog + ALogCloud で全体の61.7%</p>
+                    <p style="font-size: 0.85rem; color: #dc2626; margin-top: 6px; font-weight: 500;">NewALog + ALogCloud で全体の61.7%</p>
                 </div>
             </div>
-            <div class="summary-box" style="margin-top: 20px; padding: 20px 25px;">
-                <p style="font-size: 1.1rem; margin: 0; line-height: 1.7;"><strong>経営サマリ:</strong> 2026年上期のエスカレーション対応は624件で、月間起票数は1月76件から6月136件へ増加した。NewALog（263件）とALogCloud（122件）が全体の6割超を占め、問い合わせはログ収集・インポート・変換・レポートなど、ログ処理の一連のパイプラインに集中している。</p>
+            <div class="summary-box" style="margin-top: 12px; padding: 12px 18px;">
+                <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>経営サマリ:</strong> 2026年上期のエスカレーション対応は624件で、月間起票数は1月76件から6月136件へ増加した。NewALog（263件）とALogCloud（122件）が全体の6割超を占め、問い合わせはログ収集・インポート・変換・レポートなど、ログ処理の一連のパイプラインに集中している。</p>
+            </div>
+            <div style="margin-top: 8px; padding: 10px 15px; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0 6px 6px 0;">
+                <p style="font-size: 0.85rem; margin: 0; color: #1e3a5f;"><strong>🤖 AI活用:</strong> 開発で構築したAI環境をヘルプの一部メンバーに開放。エスカレーション対応の効率化に活用していただいている。</p>
             </div>
         </div>
         <div class="slide-footer">
@@ -952,86 +969,53 @@
     <div class="slide">
         <h2 class="section-title">エスカレーション対応状況（詳細）</h2>
         <div class="content-area">
-            <div class="two-columns" style="gap: 30px;">
-                <!-- 左列: ステータス内訳 -->
-                <div class="card" style="padding: 25px 30px;">
-                    <div class="card-title" style="font-size: 1.3rem; margin-bottom: 20px;">ステータス内訳（624件）</div>
-                    <table class="data-table" style="font-size: 1.1rem;">
-                        <tbody>
-                            <tr style="background: #dcfce7;">
-                                <td style="padding: 12px 18px;"><span class="badge badge-success">終了</span></td>
-                                <td style="padding: 12px 18px; text-align: right;"><strong>271件</strong></td>
-                                <td style="padding: 12px 18px; text-align: right;">43.4%</td>
-                            </tr>
-                            <tr style="background: #fef3c7;">
-                                <td style="padding: 12px 18px;"><span class="badge badge-warning">レビュー待ち</span></td>
-                                <td style="padding: 12px 18px; text-align: right;"><strong>276件</strong></td>
-                                <td style="padding: 12px 18px; text-align: right; color: #dc2626;">44.2%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">進行中</td>
-                                <td style="padding: 12px 18px; text-align: right;">58件</td>
-                                <td style="padding: 12px 18px; text-align: right;">9.3%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">フィードバック</td>
-                                <td style="padding: 12px 18px; text-align: right;">18件</td>
-                                <td style="padding: 12px 18px; text-align: right;">2.9%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">新規</td>
-                                <td style="padding: 12px 18px; text-align: right;">1件</td>
-                                <td style="padding: 12px 18px; text-align: right;">0.2%</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card" style="padding: 18px 22px;">
+                <div class="card-title" style="font-size: 1.1rem; margin-bottom: 12px;">問い合わせ内容の傾向（題名キーワード分析）</div>
+                <table class="data-table" style="font-size: 0.95rem;">
+                    <tbody>
+                        <tr style="background: #fee2e2;">
+                            <td style="padding: 8px 14px;"><strong>ログ</strong></td>
+                            <td style="padding: 8px 14px; text-align: right;"><strong>178件</strong></td>
+                            <td style="padding: 8px 14px; text-align: right;">28.5%</td>
+                        </tr>
+                        <tr style="background: #fef3c7;">
+                            <td style="padding: 8px 14px;">エラー</td>
+                            <td style="padding: 8px 14px; text-align: right;">126件</td>
+                            <td style="padding: 8px 14px; text-align: right;">20.2%</td>
+                        </tr>
+                        <tr style="background: #fef3c7;">
+                            <td style="padding: 8px 14px;">タスク</td>
+                            <td style="padding: 8px 14px; text-align: right;">97件</td>
+                            <td style="padding: 8px 14px; text-align: right;">15.5%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 14px;">収集</td>
+                            <td style="padding: 8px 14px; text-align: right;">81件</td>
+                            <td style="padding: 8px 14px; text-align: right;">13.0%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 14px;">アラート</td>
+                            <td style="padding: 8px 14px; text-align: right;">77件</td>
+                            <td style="padding: 8px 14px; text-align: right;">12.3%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 14px;">レポート</td>
+                            <td style="padding: 8px 14px; text-align: right;">50件</td>
+                            <td style="padding: 8px 14px; text-align: right;">8.0%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 14px;">インポート</td>
+                            <td style="padding: 8px 14px; text-align: right;">40件</td>
+                            <td style="padding: 8px 14px; text-align: right;">6.4%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="summary-box" style="margin-top: 12px; padding: 10px 15px;">
+                    <p style="font-size: 0.9rem; margin: 0;">→ ログ収集〜変換・タスク〜検索・レポートの一連処理が問い合わせの中心</p>
                 </div>
-                <!-- 右列: 問い合わせ内容の傾向 -->
-                <div class="card" style="padding: 25px 30px;">
-                    <div class="card-title" style="font-size: 1.3rem; margin-bottom: 20px;">問い合わせ内容の傾向（題名キーワード分析）</div>
-                    <table class="data-table" style="font-size: 1.1rem;">
-                        <tbody>
-                            <tr style="background: #fee2e2;">
-                                <td style="padding: 12px 18px;"><strong>ログ</strong></td>
-                                <td style="padding: 12px 18px; text-align: right;"><strong>178件</strong></td>
-                                <td style="padding: 12px 18px; text-align: right;">28.5%</td>
-                            </tr>
-                            <tr style="background: #fef3c7;">
-                                <td style="padding: 12px 18px;">エラー</td>
-                                <td style="padding: 12px 18px; text-align: right;">126件</td>
-                                <td style="padding: 12px 18px; text-align: right;">20.2%</td>
-                            </tr>
-                            <tr style="background: #fef3c7;">
-                                <td style="padding: 12px 18px;">タスク</td>
-                                <td style="padding: 12px 18px; text-align: right;">97件</td>
-                                <td style="padding: 12px 18px; text-align: right;">15.5%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">収集</td>
-                                <td style="padding: 12px 18px; text-align: right;">81件</td>
-                                <td style="padding: 12px 18px; text-align: right;">13.0%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">アラート</td>
-                                <td style="padding: 12px 18px; text-align: right;">77件</td>
-                                <td style="padding: 12px 18px; text-align: right;">12.3%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">レポート</td>
-                                <td style="padding: 12px 18px; text-align: right;">50件</td>
-                                <td style="padding: 12px 18px; text-align: right;">8.0%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 18px;">インポート</td>
-                                <td style="padding: 12px 18px; text-align: right;">40件</td>
-                                <td style="padding: 12px 18px; text-align: right;">6.4%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="summary-box" style="margin-top: 15px; padding: 15px 20px;">
-                        <p style="font-size: 1.05rem; margin: 0;">→ ログ収集〜変換・タスク〜検索・レポートの一連処理が問い合わせの中心</p>
-                    </div>
-                </div>
+            </div>
+            <div class="summary-box" style="margin-top: 15px; padding: 12px 18px; background: #fef3c7; border-color: #f59e0b;">
+                <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>増加要因:</strong> NewALogおよびALog Cloudの利用拡大・運用具体化に伴い、クラウドログ収集、変換・インポート、レポート／アラートに関する問い合わせが増えたことに加え、<span style="color: #dc2626; font-weight: 600;">脆弱性確認と移行・更新案件が同時期に集中</span>したことが主因。</p>
             </div>
         </div>
         <div class="slide-footer">
@@ -1061,22 +1045,22 @@
                     <div class="kpi-target">3Q継続</div>
                 </div>
             </div>
-            <div class="card" style="margin-top: 25px; padding: 25px 30px;">
-                <div class="card-title" style="margin-bottom: 15px;">案件状況</div>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 1.1rem;">
-                    <li style="border-left: 5px solid #059669; padding: 15px 20px; margin-bottom: 12px; background: #f0fdf4; border-radius: 0 8px 8px 0;">
-                        <span class="badge badge-success">完了</span> <strong>TSP_エー・シー・エス債権管理回収様</strong>：アクセスログ復旧作業の現地作業完了。持ち帰りデータの最終確認中
+            <div class="card" style="margin-top: 18px; padding: 18px 22px;">
+                <div class="card-title" style="margin-bottom: 10px; font-size: 1.1rem;">案件状況</div>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+                    <li style="border-left: 4px solid #059669; padding: 10px 15px; margin-bottom: 8px; background: #f0fdf4; border-radius: 0 6px 6px 0;">
+                        <span class="badge badge-success">完了</span> <strong>TSP_エー・シー・エス債権管理回収様</strong>：アクセスログ復旧作業完了。持ち帰りデータ最終確認中
                     </li>
-                    <li style="border-left: 5px solid #f59e0b; padding: 15px 20px; margin-bottom: 12px; background: #fffbeb; border-radius: 0 8px 8px 0;">
-                        <span class="badge badge-warning">進行中</span> <strong>菱友システムズ</strong>：工場系PoCを進行中。製品系は検知の拡充・可視化・妥当性の観点にシフト
+                    <li style="border-left: 4px solid #f59e0b; padding: 10px 15px; margin-bottom: 8px; background: #fffbeb; border-radius: 0 6px 6px 0;">
+                        <span class="badge badge-warning">進行中</span> <strong>菱友システムズ</strong>：工場系PoCを進行中。検知拡充・可視化・妥当性の観点にシフト
                     </li>
-                    <li style="border-left: 5px solid #f59e0b; padding: 15px 20px; margin-bottom: 12px; background: #fffbeb; border-radius: 0 8px 8px 0;">
+                    <li style="border-left: 4px solid #f59e0b; padding: 10px 15px; margin-bottom: 8px; background: #fffbeb; border-radius: 0 6px 6px 0;">
                         <span class="badge badge-warning">進行中</span> <strong>鹿島建設</strong>：大規模案件（200GB〜1TB）のRFI実施中
                     </li>
-                    <li style="border-left: 5px solid #dc2626; padding: 15px 20px; margin-bottom: 12px; background: #fef2f2; border-radius: 0 8px 8px 0;">
+                    <li style="border-left: 4px solid #dc2626; padding: 10px 15px; margin-bottom: 8px; background: #fef2f2; border-radius: 0 6px 6px 0;">
                         <span class="badge badge-danger">停滞</span> <strong>MUSK</strong>：勤怠システム改修依頼は連絡無し。見積り期限超過のためペンディング
                     </li>
-                    <li style="border-left: 5px solid #dc2626; padding: 15px 20px; background: #fef2f2; border-radius: 0 8px 8px 0;">
+                    <li style="border-left: 4px solid #dc2626; padding: 10px 15px; background: #fef2f2; border-radius: 0 6px 6px 0;">
                         <span class="badge badge-danger">停滞</span> <strong>CMJ</strong>：双方時間が無く進められていない状態
                     </li>
                 </ul>
